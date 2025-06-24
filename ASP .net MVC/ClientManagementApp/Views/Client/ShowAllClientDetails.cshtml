@@ -1,0 +1,43 @@
+﻿@model List<ClientManagementApp.Models.ClientInfo>
+@addTagHelper *,Microsoft.AspNetCore.Mvc.TagHelpers
+
+
+	<html>
+		<head>
+			<title>All Client Details</title>
+		</head>
+		<body>
+            <h3>CLIENTS DETAILS</h3>
+            <a asp-route="AddClient">Add new Clients</a>
+			<table border="1" cellpadding="8" cellspacing="0">
+    <tr>
+        <th>Client ID</th>
+        <th>Company Name</th>
+        <th>Web URL</th>
+        <th>Email</th>
+        <th>Category</th>
+        <th>Standard</th>
+    </tr>
+    @foreach (var client in Model)
+    {
+        <tr>
+            <td>@client.ClientId</td>
+            <td>@client.CompanyName</td>
+            <td>@client.WebUrl</td>
+            <td>@client.Email</td>
+            <td>@client.Category</td>
+            <td>@client.Standard</td>
+            <td><a asp-action="GetDetailsByClientId" asp-route-id="@client.ClientId" >Details with ID</a></td>
+            <td><a asp-action="GetDetailsByCompanyName" asp-route-name="@client.CompanyName">Details with CompanyName</a></td>
+            <td><a asp-action="GetDetailsByEmail" asp-route-email="@client.Email">Details with Email</a></td>
+            <td><a asp-action="GetDetailsByCategory" asp-route-category="@client.Category">Details with Category</a></td>
+            <td><a asp-action="GetDetailsByStandard" asp-route-standard="@client.Standard">Details with Category</a></td>
+
+        </tr>
+    }
+            </table>
+            <div>
+                <a asp-route="ShowAllClientDetails">Show All Clients Details</a>
+            </div>
+		</body>
+     </html>

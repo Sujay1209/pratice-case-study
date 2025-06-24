@@ -1,0 +1,16 @@
+﻿@model ClientManagementApp.Models.ClientInfo
+@addTagHelper *,Microsoft.AspNetCore.Mvc.TagHelpers
+
+<html>
+    <head>
+        <title>Client Details</title>
+    </head>
+    <body>
+        <a asp-route="all">Client List</a>
+        <h3>Company Name:@Model.ClientId</h3>
+        <div>WebUrl:@Model.WebUrl</div>
+        <div>Email:@Model.Email</div>
+        <div>Category:@Model.Category</div>
+        <div>Standard:@Model.Standard</div>
+    </body>
+<html>
